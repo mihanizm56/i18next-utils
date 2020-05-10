@@ -1,15 +1,18 @@
-# @wildberries/boilerplate-config-packager
+# @wildberries/i18next-utils
 
-### Commands
+This package contains redux module, utils and types for working with
+i18next package.
 
-<b>To make the config-package-executor runs into the root folder</b><br>
+## Public API
+
+### Actions
+- fetchLangDictAction,
+
+### Utils
+- geti18Next
 
 ```javascript
-npx @wildberries/boilerplate-config-packager
+npx @wildberries/i18next-utils
 ```
 
-<b>This execution will do the steps:</b>
 
-- copy "config dir"
-- patch your package.json
-- copy some config files in to your project root dir
