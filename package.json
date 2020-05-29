@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/i18next-utils",
-  "version": "0.0.2",
+  "version": "0.0.3-beta.1",
   "description": "i18next utils for boilerplate",
   "typings": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "8.2.0",
+    "@types/node": "^14.0.5",
     "@types/redux": "3.6.0",
     "@typescript-eslint/eslint-plugin": "2.5.0",
     "@typescript-eslint/parser": "2.5.0",
