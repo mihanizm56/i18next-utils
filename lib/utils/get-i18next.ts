@@ -14,6 +14,7 @@ export const geti18Next = ({ appNamespace, locale }: ParamsType) =>
       debug: isDev,
       lng: locale,
       ns: [appNamespace],
+      lowerCaseLng: true,
       returnEmptyString: false,
       resources: {},
     });
