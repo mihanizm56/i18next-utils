@@ -1,6 +1,10 @@
 import i18next from 'i18next';
 import { Dispatch } from 'redux';
 import { BaseAction } from 'lib/types';
+import {
+  DictionaryRegisterType,
+  dictionaryRegisterer,
+} from 'lib/utils/dictionary-registerer';
 
 type ParamsType = {
   dispatch: Dispatch;
@@ -10,6 +14,7 @@ type ParamsType = {
   appNamespace: string;
   locale: string;
   requestUrl: string;
+  registeredDictionaries?: Array<DictionaryRegisterType>;
 };
 
 export const fetchLangDictAction = ({
@@ -20,6 +25,7 @@ export const fetchLangDictAction = ({
   appNamespace,
   locale,
   requestUrl,
+  registeredDictionaries,
 }: ParamsType) =>
   new Promise(async resolve => {
     dispatch(startLoadingAction());
@@ -31,6 +37,12 @@ export const fetchLangDictAction = ({
       i18next.addResourceBundle(locale, appNamespace, {
         ...translation,
       });
+
+      if (registeredDictionaries) {
+        registeredDictionaries.forEach(dictionary =>
+          dictionaryRegisterer.setDictionary(dictionary),
+        );
+      }
     } catch (error) {
       console.error('get error when loading dict', error);
       if (errorAction) {
