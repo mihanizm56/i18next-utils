@@ -1,8 +1,9 @@
-import { LocalStorageWorker } from './localstorage-worker';
+import { getFullLocale } from './get-full-locale';
+import { getPartLocale } from './get-part-locale';
 
-export const getLocale = (): string =>
-  (
-    LocalStorageWorker.getItem('locale') ||
-    window.navigator.language ||
-    'en'
-  ).toLowerCase();
+export const getLocale = (): string => {
+  const fullLocale = getFullLocale();
+  const partLocale = getPartLocale(fullLocale);
+
+  return partLocale;
+};
