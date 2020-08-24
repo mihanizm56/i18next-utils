@@ -1,5 +1,5 @@
-import { fetchLangDictAction } from 'lib/redux-module';
-import { BaseAction } from 'lib/types';
+import { BaseAction } from '../types';
+import { fetchLangDictAction } from '../redux-module';
 
 type ParamsType = {
   fromState: any;
