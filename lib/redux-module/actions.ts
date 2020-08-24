@@ -4,9 +4,9 @@ import { BaseAction } from '../types';
 
 type ParamsType = {
   dispatch: Dispatch;
-  startLoadingAction: BaseAction;
+  startLoadingAction?: BaseAction;
   errorAction?: BaseAction;
-  stopLoadingAction: BaseAction;
+  stopLoadingAction?: BaseAction;
   appNamespace: string;
   locale: string;
   requestUrl: string;
@@ -22,7 +22,10 @@ export const fetchLangDictAction = ({
   requestUrl,
 }: ParamsType) =>
   new Promise(async resolve => {
-    dispatch(startLoadingAction());
+    if (startLoadingAction) {
+      dispatch(startLoadingAction());
+    }
+
     try {
       const { translate: translation } = await fetch(requestUrl).then(data =>
         data.json(),
@@ -37,7 +40,9 @@ export const fetchLangDictAction = ({
         dispatch(errorAction());
       }
     } finally {
-      dispatch(stopLoadingAction());
+      if (stopLoadingAction) {
+        dispatch(stopLoadingAction());
+      }
 
       resolve();
     }
