@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import { Dispatch } from 'redux';
-import { BaseAction } from 'lib/types';
+import { BaseAction } from '../types';
 
 type ParamsType = {
   dispatch: Dispatch;
