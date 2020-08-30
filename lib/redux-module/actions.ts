@@ -37,14 +37,14 @@ export const fetchLangDictAction = ({
         endpoint: requestUrl,
         parseType: 'json',
         customTimeout: 3000,
-      })) as IResponse & { data: any };
+      })) as IResponse & { data: { translate: Record<string, any> } };
 
       if (error) {
         throw new Error(errorText);
       }
 
       i18next.addResourceBundle(locale, appNamespace, {
-        ...data,
+        ...data.translate,
       });
     } catch (error) {
       console.error('get error when loading dict', error);
