@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import { Dispatch } from 'redux';
 import { IResponse } from '@mihanizm56/fetch-api';
-import { i18nextRequest } from 'lib/api/i18next-request';
+import { i18nextRequest } from '../api/i18next-request';
 import { BaseAction } from '../types';
 
 type ParamsType = {
