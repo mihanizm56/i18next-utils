@@ -29,9 +29,9 @@ export const fetchLangDictAction = ({
     }
 
     try {
-      const { data, error, errorText } = (await i18nextRequest(
-        requestUrl,
-      )) as IResponse & { data: { translate: Record<string, any> } };
+      const { data, error, errorText } = (await i18nextRequest({
+        endpoint: requestUrl,
+      })) as IResponse & { data: { translate: Record<string, any> } };
 
       if (error) {
         throw new Error(errorText);

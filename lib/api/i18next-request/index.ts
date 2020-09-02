@@ -1,12 +1,17 @@
 import { PureRestRequest } from '@mihanizm56/fetch-api';
 import Joi from '@hapi/joi';
 
-export const i18nextRequest = (requestUrl: string) =>
+type ParamsType = {
+  endpoint: string;
+  requestTimeout?: number;
+};
+
+export const i18nextRequest = ({ endpoint, requestTimeout }: ParamsType) =>
   new PureRestRequest().getRequest({
     extraValidationCallback: () => true,
-    endpoint: requestUrl,
+    endpoint,
     parseType: 'json',
-    customTimeout: 3000,
+    customTimeout: requestTimeout,
     responseSchema: Joi.object({
       translate: Joi.object(),
     }),
