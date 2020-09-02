@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import { i18nextRequest } from 'lib/api/i18next-request';
+import { i18nextRequest } from '../api/i18next-request';
 import { getLocale } from './get-locale';
 import { getI18nextRequestEndpoint } from './get-i18next-endpoint';
 
