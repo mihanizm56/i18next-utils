@@ -1,5 +1,5 @@
 export class LocalStorageWorker {
-  static setItem = (key: string, value: any) =>
+  static setItem = (key: string, value: string) =>
     localStorage.setItem(key, JSON.stringify(value));
 
   static getItem = (key: string) => {
