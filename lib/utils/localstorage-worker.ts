@@ -1,11 +1,6 @@
 export class LocalStorageWorker {
-  static setItem = (key: string, value: any) => {
-    if (typeof value === 'string') {
-      return localStorage.setItem(key, value);
-    }
-
+  static setItem = (key: string, value: any) =>
     localStorage.setItem(key, JSON.stringify(value));
-  };
 
   static getItem = (key: string) => {
     const storageValue = localStorage.getItem(key);
