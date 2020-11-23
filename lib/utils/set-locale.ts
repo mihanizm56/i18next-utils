@@ -1,4 +1,4 @@
 import { LocalStorageWorker } from './localstorage-worker';
 
-export const setLocate = (locale: string) =>
+export const setLocale = (locale: string) =>
   LocalStorageWorker.setItem('locale', locale);
