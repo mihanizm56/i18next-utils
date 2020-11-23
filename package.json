@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/i18next-utils",
-  "version": "0.0.12",
+  "version": "0.0.13-beta.1",
   "description": "i18next utils for boilerplate",
   "typings": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -57,6 +57,13 @@
     },
     "cz-customizable": {
       "config": "config/git/commitizen.js"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g config/git/commitlint.js",
+      "pre-commit": "npm run lint && git add . && npm run build",
+      "prepare-commit-msg": "node ./config/git/prepare-commit.js"
     }
   }
 }

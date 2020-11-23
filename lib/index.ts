@@ -5,3 +5,4 @@ export { setLocale } from './utils/set-locale';
 export { fetchDictionary } from './utils/fetch-dictionary';
 export { i18nextRequest } from './api/i18next-request';
 export { getI18nextRequestEndpoint } from './utils/get-i18next-endpoint';
+export { getLanguagesRequest } from './api/get-languages-request';
