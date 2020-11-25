@@ -53,3 +53,9 @@ export const fetchLangDictAction = ({
       resolve();
     }
   });
+
+export const SET_LANGUAGES_ACTIONS = 'SET_LANGUAGES_ACTIONS';
+export const setLanguagesListAction = (payload: Array<string>) => ({
+  type: SET_LANGUAGES_ACTIONS,
+  payload,
+});
