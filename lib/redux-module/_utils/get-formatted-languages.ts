@@ -1,3 +1,5 @@
+import { LanguageObjectType } from '../_types';
+
 export const LANGUAGES_META: Record<string, Record<string, string>> = {
   ru: {
     title: 'Русский',
@@ -5,11 +7,6 @@ export const LANGUAGES_META: Record<string, Record<string, string>> = {
   en: {
     title: 'English',
   },
-};
-
-export type LanguageObjectType = {
-  id: string;
-  value: string;
 };
 
 export const getFormattedLanguages = (

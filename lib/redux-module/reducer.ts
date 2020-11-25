@@ -10,7 +10,7 @@ export const initialState: I18nextStorage = {
   languagesList: [],
 };
 
-const reducer = (
+export const i18nReducer = (
   state = initialState,
   { type, payload }: I18nextActionsType,
 ): I18nextStorage => {
@@ -22,5 +22,3 @@ const reducer = (
       return state;
   }
 };
-
-export default reducer;
