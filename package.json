@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/i18next-utils",
-  "version": "0.0.14-beta.3",
+  "version": "0.0.14-beta.4",
   "description": "i18next utils for boilerplate",
   "typings": "dist/index.d.ts",
   "main": "dist/index.js",
