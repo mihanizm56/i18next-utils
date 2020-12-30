@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import ICU from 'i18next-icu';
 
 type ParamsType = {
-  appNamespace: string;
+  appNamespace?: string;
   locale: string;
   initialResources?: Record<string, any>;
 };
@@ -18,7 +18,7 @@ export const geti18Next = ({
     await i18next.use(ICU).init({
       debug: isDev,
       lng: locale,
-      ns: [appNamespace],
+      ns: appNamespace ? [appNamespace] : [],
       lowerCaseLng: true,
       returnEmptyString: false,
       resources: { ...initialResources },
@@ -31,7 +31,7 @@ export const geti18NextSync = ({ appNamespace, locale }: ParamsType) =>
   i18next.use(ICU).init({
     debug: isDev,
     lng: locale,
-    ns: [appNamespace],
+    ns: appNamespace ? [appNamespace] : [],
     lowerCaseLng: true,
     returnEmptyString: false,
     resources: {},

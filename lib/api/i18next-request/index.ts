@@ -15,4 +15,5 @@ export const i18nextRequest = ({ endpoint, requestTimeout }: ParamsType) =>
     responseSchema: Joi.object({
       translate: Joi.object(),
     }),
+    isErrorTextStraightToOutput: true,
   });
