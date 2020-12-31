@@ -18,7 +18,7 @@ export const geti18Next = ({
 }: ParamsType) =>
   new Promise<void>(async resolve => {
     await i18next.use(ICU).init({
-      debug: debug || isDev,
+      debug: typeof debug === 'boolean' ? debug : isDev,
       lng: locale,
       ns: appNamespace ? [appNamespace] : [],
       lowerCaseLng: true,
