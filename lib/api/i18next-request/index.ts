@@ -4,9 +4,14 @@ import Joi from '@hapi/joi';
 type ParamsType = {
   endpoint: string;
   requestTimeout?: number;
+  isErrorTextStraightToOutput?: boolean;
 };
 
-export const i18nextRequest = ({ endpoint, requestTimeout }: ParamsType) =>
+export const i18nextRequest = ({
+  endpoint,
+  requestTimeout,
+  isErrorTextStraightToOutput = true,
+}: ParamsType) =>
   new PureRestRequest().getRequest({
     extraValidationCallback: () => true,
     endpoint,
@@ -15,5 +20,5 @@ export const i18nextRequest = ({ endpoint, requestTimeout }: ParamsType) =>
     responseSchema: Joi.object({
       translate: Joi.object(),
     }),
-    isErrorTextStraightToOutput: true,
+    isErrorTextStraightToOutput,
   });
