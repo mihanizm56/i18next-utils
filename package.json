@@ -1,0 +1,61 @@
+{
+  "name": "@wildberries/i18next-utils",
+  "version": "1.0.0",
+  "description": "i18next utils for boilerplate",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": " rm -fr ./dist && tsc -p tsconfig.json",
+    "lint": "npx eslint . --ext .ts --fix",
+    "commit": "git add . && git commit --no-edit",
+    "release": "npm run commit && git push && npm publish --access=public",
+    "beta": "npm run commit && git push && npm publish --tag beta --access=public"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/mihanizm56/i18next-utils#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihanizm56/i18next-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mihanizm56/i18next-utils/issues"
+  },
+  "dependencies": {
+    "i18next": "19.4.4",
+    "i18next-icu": "1.3.1",
+    "@mihanizm56/fetch-api": "3.5.1",
+    "@hapi/joi": "17.1.1",
+    "reselect": "4.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/hapi__joi": "16.0.12",
+    "@commitlint/cli": "8.2.0",
+    "@types/node": "14.0.5",
+    "@types/redux": "3.6.0",
+    "commitizen": "4.0.4",
+    "cross-env": "7.0.2",
+    "cz-customizable": "6.2.0",
+    "@wildberries/eslint-config-standart": "1.0.2",
+    "husky": "3.0.9",
+    "typescript": "3.8.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/git/commitizen.js"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g config/git/commitlint.js",
+      "pre-commit": "npm run lint && git add . && npm run build",
+      "prepare-commit-msg": "node ./config/git/prepare-commit.js"
+    }
+  }
+}
