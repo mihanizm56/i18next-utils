@@ -12,3 +12,4 @@ export {
   i18nReducer,
   I18NEXT_REDUCER_NAME,
 } from './redux-module';
+export { setHeadLang } from './utils/set-head-lang';
