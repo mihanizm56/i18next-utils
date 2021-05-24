@@ -2,7 +2,8 @@ import i18next from 'i18next';
 import { Dispatch } from 'redux';
 import { IResponse } from '@mihanizm56/fetch-api';
 import { i18nextRequest } from '../api/i18next-request';
-import { BaseAction } from '../types';
+import { BaseAction, Action } from '../types';
+import { fetchLanguagesActionParams } from './_types';
 
 type ParamsType = {
   dispatch: Dispatch;
@@ -57,5 +58,14 @@ export const fetchLangDictAction = ({
 export const SET_LANGUAGES_ACTIONS = 'SET_LANGUAGES_ACTIONS';
 export const setLanguagesListAction = (payload: Array<string>) => ({
   type: SET_LANGUAGES_ACTIONS,
+  payload,
+});
+
+export const FETCH_LANGUAGES_ACTION =
+  '@platform-sidebar/FETCH_LANGUAGES_ACTION';
+export const fetchLanguagesAction: Action<
+  fetchLanguagesActionParams
+> = payload => ({
+  type: FETCH_LANGUAGES_ACTION,
   payload,
 });
