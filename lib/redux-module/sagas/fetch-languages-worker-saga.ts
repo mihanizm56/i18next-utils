@@ -11,7 +11,11 @@ export function* fetchLanguagesWorkerSaga({
   try {
     const { data, error, errorText } = yield call(languagesRequest);
 
-    if (error || !data.languages) {
+    if (!data.languages) {
+      throw new Error('no languages');
+    }
+
+    if (error) {
       throw new Error(errorText);
     }
 
