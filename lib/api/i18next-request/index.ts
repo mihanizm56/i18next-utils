@@ -25,4 +25,5 @@ export const i18nextRequest = ({
     customTimeout: requestTimeout,
     responseSchema,
     isErrorTextStraightToOutput,
+    retry: 3,
   });
