@@ -1,9 +1,7 @@
 import i18next from 'i18next';
 import { Dispatch } from 'redux';
-import { IResponse } from '@mihanizm56/fetch-api';
-import { i18nextRequest } from '../api/i18next-request';
 import { BaseAction, Action } from '../types';
-import { fetchLanguagesActionParams } from './_types';
+import { fetchLanguagesActionParams, ResponseType } from './_types';
 
 type ParamsType = {
   dispatch: Dispatch;
@@ -13,6 +11,7 @@ type ParamsType = {
   appNamespace: string;
   locale: string;
   requestUrl: string;
+  i18nextRequest: (params: { endpoint: string }) => Promise<ResponseType>;
 };
 
 export const fetchLangDictAction = ({
@@ -23,7 +22,8 @@ export const fetchLangDictAction = ({
   appNamespace,
   locale,
   requestUrl,
-}: ParamsType) =>
+  i18nextRequest,
+}: ParamsType): Promise<void> =>
   new Promise(async resolve => {
     if (startLoadingAction) {
       dispatch(startLoadingAction());
@@ -32,7 +32,7 @@ export const fetchLangDictAction = ({
     try {
       const { data, error, errorText } = (await i18nextRequest({
         endpoint: requestUrl,
-      })) as IResponse & { data: { translate: Record<string, any> } };
+      })) as ResponseType & { data: { translate: Record<string, any> } };
 
       if (error) {
         throw new Error(errorText);

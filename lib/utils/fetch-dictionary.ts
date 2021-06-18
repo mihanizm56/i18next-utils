@@ -1,5 +1,5 @@
 import { BaseAction } from '../types';
-import { fetchLangDictAction } from '../redux-module';
+import { fetchLangDictAction, ResponseType } from '../redux-module';
 
 type ParamsType = {
   fromState: any;
@@ -10,6 +10,7 @@ type ParamsType = {
   locale: string;
   appNamespace: string;
   requestUrl: string;
+  i18nextRequest: (params: { endpoint: string }) => Promise<ResponseType>;
 };
 
 export const fetchDictionary = async ({
@@ -21,6 +22,7 @@ export const fetchDictionary = async ({
   appNamespace,
   locale,
   requestUrl,
+  i18nextRequest,
 }: ParamsType) => {
   // define first route name to navigate from
   const coreRouteFromStateName =
@@ -38,6 +40,7 @@ export const fetchDictionary = async ({
       appNamespace,
       locale,
       requestUrl,
+      i18nextRequest,
     });
   }
 };
