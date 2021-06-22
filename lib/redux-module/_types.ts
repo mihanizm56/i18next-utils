@@ -23,4 +23,5 @@ export type ResponseType = {
 
 export type fetchLanguagesActionParams = {
   languagesRequest: () => Promise<ResponseType>;
+  languagesFallback?: Array<string>;
 };

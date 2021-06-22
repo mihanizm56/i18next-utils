@@ -7,6 +7,7 @@ export const FETCH_LANGUAGES_WATCHER_SAGA_NAME =
 
 export function* fetchLanguagesWorkerSaga({
   languagesRequest,
+  languagesFallback,
 }: fetchLanguagesActionParams) {
   try {
     const { data, error, errorText } = yield call(languagesRequest);
@@ -25,5 +26,9 @@ export function* fetchLanguagesWorkerSaga({
       'fetchLanguagesWorkerSaga gets an error',
       fetchLanguagesWorkerSaga,
     );
+
+    if (languagesFallback) {
+      yield put(setLanguagesListAction(languagesFallback));
+    }
   }
 }
