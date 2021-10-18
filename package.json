@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/i18next-utils",
-  "version": "2.0.3-beta.1",
+  "version": "2.0.3-beta.2",
   "description": "i18next utils for boilerplate",
   "typings": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -24,8 +24,9 @@
   "dependencies": {
     "i18next": "21.3.2",
     "i18next-icu": "2.0.3",
-    "reselect": "4.0.0",
-    "redux-saga": "1.1.1"
+    "intl-messageformat": "9.9.3",
+    "redux-saga": "1.1.1",
+    "reselect": "4.0.0"
   },
   "files": [
     "dist"
