@@ -1,6 +1,6 @@
 {
   "name": "@wildberries/i18next-utils",
-  "version": "2.0.3",
+  "version": "2.0.4-beta.1",
   "description": "i18next utils for boilerplate",
   "typings": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -33,7 +33,6 @@
   ],
   "devDependencies": {
     "@commitlint/cli": "8.2.0",
-    "@types/hapi__joi": "16.0.12",
     "@types/node": "14.0.5",
     "@types/redux": "3.6.0",
     "@wildberries/eslint-config-standart": "1.0.2",
