@@ -15,3 +15,8 @@ export const i18nLanguagesListSelector = createSelector(
       ? getFormattedLanguages(languagesList)
       : [],
 );
+
+export const i18nLanguagesPureListSelector = createSelector(
+  [I18nextStorageSelector],
+  ({ languagesList }: I18nextStorage) => languagesList || [],
+);
