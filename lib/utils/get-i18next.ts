@@ -30,9 +30,10 @@ export const geti18Next = ({
     resolve();
   });
 
-export const geti18NextSync = ({ appNamespace, locale }: ParamsType) =>
+export const geti18NextSync = ({ appNamespace, locale, debug }: ParamsType) =>
   i18next.use(ICU).init({
-    debug: isDev,
+    // because if debug is false and isDev is true - not to get "true"
+    debug: typeof debug === 'boolean' ? debug : isDev,
     lng: locale,
     ns: appNamespace ? [appNamespace] : [],
     lowerCaseLng: true,
