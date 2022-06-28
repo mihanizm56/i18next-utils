@@ -1,7 +1,7 @@
 import { getBrowserCookie } from './get-browser-cookie';
 import { LocalStorageWorker } from './localstorage-worker';
 
-const FALLBACK_LANGUAGE = 'en';
+const FALLBACK_LANGUAGE = 'ru';
 
 export const getFullLocale = (isFromCookie?: boolean): string => {
   const baseFullLocale = isFromCookie
